@@ -55,16 +55,18 @@ export default function GeneratorPage() {
     setResult(null);
     setError(null);
 
-    // Simulate progressive loading
+    // Simulate progressive loading (slower for AI generation)
+    let progressValue = 0;
     const interval = setInterval(() => {
       setProgress((prev) => {
-        if (prev >= 90) {
+        if (prev >= 85) {
           clearInterval(interval);
-          return 90;
+          return 85;
         }
-        return prev + Math.random() * 12;
+        const increment = prev < 30 ? Math.random() * 8 : Math.random() * 4;
+        return Math.min(prev + increment, 85);
       });
-    }, 400);
+    }, 800);
 
     try {
       const res = await fetch("/api/generate", {
@@ -74,23 +76,30 @@ export default function GeneratorPage() {
       });
 
       if (!res.ok) {
-        throw new Error("Generation failed");
+        const errData = await res.json().catch(() => null);
+        throw new Error(errData?.error || "Generation failed");
       }
 
       const data: GenerateResponse = await res.json();
       clearInterval(interval);
 
+      if (data.status === "failed") {
+        setProgress(0);
+        setError(data.error || "Generation failed. Please try again.");
+        return;
+      }
+
       // Animate to 100%
       setProgress(100);
 
       // Small delay so user sees 100%
-      await new Promise((r) => setTimeout(r, 300));
+      await new Promise((r) => setTimeout(r, 500));
 
       setResult(data);
     } catch (err) {
       clearInterval(interval);
       setProgress(0);
-      setError("Something went wrong. Please try again.");
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     } finally {
       setIsGenerating(false);
     }
@@ -189,7 +198,10 @@ export default function GeneratorPage() {
                         <div className="absolute inset-0 h-12 w-12 animate-ping rounded-full border-2 border-violet-400/20" />
                       </div>
                       <p className="text-sm font-medium text-white/80">
-                        Creating your video...
+                        AI is generating your video...
+                      </p>
+                      <p className="text-xs text-white/40 text-center max-w-[250px]">
+                        This may take 1-2 minutes. The AI is creating your video from your prompt.
                       </p>
                       <Progress value={progress} className="w-full max-w-xs" />
                       <span className="text-xs tabular-nums text-white/40">

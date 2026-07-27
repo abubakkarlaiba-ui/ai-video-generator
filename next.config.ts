@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  env: {
+    REPLICATE_API_TOKEN: process.env.REPLICATE_API_TOKEN,
+  },
 };
 
 export default nextConfig;

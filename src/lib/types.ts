@@ -70,4 +70,5 @@ export interface GenerateResponse {
   videoUrl?: string;
   thumbnailUrl?: string;
   progress: number;
+  error?: string;
 }
