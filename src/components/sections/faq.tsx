@@ -61,7 +61,7 @@ function FAQItem({
         className="flex w-full items-center justify-between p-6 text-left"
         aria-expanded={isOpen}
       >
-        <span className="text-base font-semibold text-white pr-4">
+        <span className="pr-4 text-[15px] font-semibold text-white">
           {item.question}
         </span>
         <div
@@ -103,7 +103,9 @@ export function FAQ() {
 
   return (
     <section className="relative py-32">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.015] to-transparent" />
+
+      <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="FAQ"
           title="Frequently asked"

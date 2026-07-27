@@ -35,7 +35,7 @@ export function CTA() {
                 </Button>
               </div>
               <p className="mt-6 text-xs text-white/30">
-                No credit card required • 5 free videos/month
+                No credit card required &bull; 5 free videos/month
               </p>
             </div>
           </div>

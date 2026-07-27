@@ -55,7 +55,10 @@ const STEPS: {
 export function HowItWorks() {
   return (
     <section className="relative py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="absolute inset-0 bg-gradient-to-b from-white/[0.01] via-white/[0.02] to-white/[0.01]" />
+      <div className="absolute left-1/4 top-1/3 h-[500px] w-[500px] rounded-full bg-cyan-600/5 blur-[120px]" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="How It Works"
           title="From text to video"
@@ -63,56 +66,48 @@ export function HowItWorks() {
           description="Creating stunning AI videos has never been easier. Our streamlined process gets you from idea to finished video in minutes."
         />
 
+        {/* Timeline */}
         <div className="relative mt-20">
-          {/* Connection line */}
-          <div className="absolute left-[calc(50%-1px)] top-0 bottom-0 hidden w-px bg-gradient-to-b from-violet-600/50 via-indigo-600/50 to-emerald-600/50 lg:block" />
+          {/* Vertical line - desktop */}
+          <div className="absolute left-1/2 top-0 bottom-0 hidden w-px bg-gradient-to-b from-violet-600/40 via-indigo-600/40 to-emerald-600/40 lg:block" />
 
-          <div className="space-y-12 lg:space-y-0">
+          <div className="space-y-8 lg:space-y-0">
             {STEPS.map((step, index) => {
               const isEven = index % 2 === 0;
               return (
                 <AnimatedWrapper
                   key={step.step}
                   direction={isEven ? "left" : "right"}
-                  delay={index * 0.15}
+                  delay={index * 0.12}
                 >
-                  <div
-                    className={`relative lg:grid lg:grid-cols-2 lg:gap-16 lg:py-12 ${
-                      isEven ? "" : "lg:direction-rtl"
-                    }`}
-                  >
-                    {/* Step number dot on timeline */}
+                  <div className="relative lg:grid lg:grid-cols-2 lg:gap-20 lg:py-10">
+                    {/* Center dot */}
                     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden lg:block">
                       <motion.div
-                        whileHover={{ scale: 1.2 }}
-                        className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-black"
+                        whileHover={{ scale: 1.15 }}
+                        className={`flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-black shadow-lg`}
                       >
-                        <span className={`text-sm font-bold ${step.color}`}>
-                          {step.step}
-                        </span>
+                        <span className={`text-sm font-bold ${step.color}`}>{step.step}</span>
                       </motion.div>
                     </div>
 
-                    {/* Content */}
+                    {/* Content side */}
                     <div
-                      className={`${
-                        isEven ? "lg:text-right lg:pr-16" : "lg:col-start-2 lg:pl-16"
-                      }`}
-                      style={{ direction: "ltr" }}
+                      className={`${isEven ? "lg:col-start-1 lg:pr-20 lg:text-right" : "lg:col-start-2 lg:pl-20"}`}
                     >
-                      <div
-                        className={`inline-flex rounded-2xl bg-gradient-to-br from-white/5 to-transparent p-4 ${
-                          isEven ? "" : ""
-                        }`}
-                      >
-                        <step.icon className={`h-8 w-8 ${step.color}`} />
+                      <div className="flex items-center gap-4 lg:justify-start">
+                        {/* Mobile step number */}
+                        <div className={`flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black lg:hidden`}>
+                          <span className={`text-xs font-bold ${step.color}`}>{step.step}</span>
+                        </div>
+                        <div className={`inline-flex rounded-2xl bg-gradient-to-br from-white/5 to-transparent p-3.5`}>
+                          <step.icon className={`h-7 w-7 ${step.color}`} />
+                        </div>
                       </div>
-                      <div className="mt-4 flex items-center gap-3 lg:justify-start">
-                        <span className={`text-xs font-bold uppercase tracking-widest ${step.color}`}>
-                          Step {step.step}
-                        </span>
-                      </div>
-                      <h3 className="mt-3 text-xl font-bold text-white sm:text-2xl">
+                      <span className={`mt-4 inline-block text-xs font-bold uppercase tracking-widest ${step.color}`}>
+                        Step {step.step}
+                      </span>
+                      <h3 className="mt-2.5 text-xl font-bold text-white sm:text-2xl">
                         {step.title}
                       </h3>
                       <p className="mt-3 text-white/50 leading-relaxed">

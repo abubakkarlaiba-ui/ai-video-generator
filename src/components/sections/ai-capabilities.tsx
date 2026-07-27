@@ -49,10 +49,22 @@ const CAPABILITIES: {
   },
 ];
 
+const PIPELINE = [
+  { label: "Text Encoder", progress: 98, color: "bg-violet-500" },
+  { label: "Scene Composition", progress: 95, color: "bg-indigo-500" },
+  { label: "Motion Planning", progress: 92, color: "bg-cyan-500" },
+  { label: "Frame Generation", progress: 97, color: "bg-emerald-500" },
+  { label: "Upscaling & QC", progress: 99, color: "bg-amber-500" },
+];
+
 export function AICapabilities() {
   return (
     <section className="relative py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.015] to-transparent" />
+      <div className="absolute right-0 top-1/4 h-[500px] w-[500px] rounded-full bg-indigo-600/5 blur-[120px]" />
+      <div className="absolute bottom-0 left-1/4 h-[400px] w-[400px] rounded-full bg-violet-600/5 blur-[120px]" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="AI Engine"
           title="Powered by next-gen"
@@ -60,12 +72,12 @@ export function AICapabilities() {
           description="Our custom-built neural network architecture pushes the boundaries of what's possible with AI video generation."
         />
 
-        <div className="mt-16 grid gap-6 lg:grid-cols-2">
-          {/* Left: Main showcase */}
+        <div className="mt-16 grid gap-5 lg:grid-cols-2">
+          {/* Main Showcase */}
           <AnimatedWrapper direction="left" className="lg:row-span-2">
-            <div className="glass-card relative h-full overflow-hidden rounded-3xl p-8 sm:p-10">
-              <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-violet-600/20 blur-[80px]" />
-              <div className="absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-indigo-600/20 blur-[80px]" />
+            <div className="glass-card group relative h-full overflow-hidden rounded-2xl p-8 transition-all duration-500 hover:bg-white/[0.04] sm:p-10">
+              <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-violet-600/20 blur-[80px] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+              <div className="absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-indigo-600/20 blur-[80px] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
 
               <div className="relative">
                 <Badge variant="default" className="mb-6 gap-1.5">
@@ -81,27 +93,20 @@ export function AICapabilities() {
                   videos that are indistinguishable from real footage.
                 </p>
 
-                {/* Animated visualization */}
                 <div className="relative mt-8 rounded-2xl border border-white/5 bg-white/[0.02] p-6">
                   <div className="space-y-4">
-                    {[
-                      { label: "Text Encoder", progress: 98, color: "bg-violet-500" },
-                      { label: "Scene Composition", progress: 95, color: "bg-indigo-500" },
-                      { label: "Motion Planning", progress: 92, color: "bg-cyan-500" },
-                      { label: "Frame Generation", progress: 97, color: "bg-emerald-500" },
-                      { label: "Upscaling & QC", progress: 99, color: "bg-amber-500" },
-                    ].map((item, i) => (
+                    {PIPELINE.map((item, i) => (
                       <div key={item.label}>
                         <div className="flex items-center justify-between mb-1.5">
                           <span className="text-xs font-medium text-white/70">{item.label}</span>
-                          <span className="text-xs text-white/40">{item.progress}%</span>
+                          <span className="text-xs tabular-nums text-white/40">{item.progress}%</span>
                         </div>
                         <div className="h-1.5 rounded-full bg-white/5 overflow-hidden">
                           <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: `${item.progress}%` }}
                             viewport={{ once: true }}
-                            transition={{ duration: 1.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                            transition={{ duration: 1.5, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
                             className={`h-full rounded-full ${item.color}`}
                           />
                         </div>
@@ -113,20 +118,18 @@ export function AICapabilities() {
             </div>
           </AnimatedWrapper>
 
-          {/* Right: Stats cards */}
+          {/* Stats Cards */}
           {CAPABILITIES.map((cap, index) => (
             <AnimatedWrapper key={cap.title} direction="right" delay={index * 0.1}>
               <div className="glass-card group rounded-2xl p-6 transition-all duration-500 hover:bg-white/[0.06]">
                 <div className="flex items-start gap-4">
-                  <div className="rounded-xl bg-white/5 p-3 transition-colors group-hover:bg-white/10">
+                  <div className="rounded-xl bg-white/5 p-3 transition-colors duration-300 group-hover:bg-white/10">
                     <cap.icon className={`h-6 w-6 ${cap.color}`} />
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-baseline gap-2">
-                      <span className={`text-3xl font-bold ${cap.color}`}>
-                        {cap.stats}
-                      </span>
-                    </div>
+                    <span className={`text-3xl font-bold ${cap.color}`}>
+                      {cap.stats}
+                    </span>
                     <h3 className="mt-1 text-sm font-semibold text-white">
                       {cap.title}
                     </h3>

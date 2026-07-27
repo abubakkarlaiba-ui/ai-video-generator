@@ -12,7 +12,10 @@ import { PRICING_PLANS } from "@/lib/constants";
 export function PricingPreview() {
   return (
     <section className="relative py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.015] to-transparent" />
+      <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-600/5 blur-[150px]" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="Pricing"
           title="Simple, transparent"
@@ -20,14 +23,14 @@ export function PricingPreview() {
           description="Start free and scale as you grow. No hidden fees, no surprises."
         />
 
-        <div className="mt-16 grid gap-6 lg:grid-cols-3">
+        <div className="mt-16 grid gap-5 lg:grid-cols-3">
           {PRICING_PLANS.map((plan, index) => (
             <AnimatedWrapper key={plan.name} delay={index * 0.1}>
               <div
                 className={cn(
-                  "relative flex h-full flex-col rounded-3xl border p-8 transition-all duration-500",
+                  "relative flex h-full flex-col rounded-2xl border p-8 transition-all duration-500",
                   plan.highlighted
-                    ? "border-violet-500/30 bg-gradient-to-b from-violet-500/10 to-transparent shadow-2xl shadow-violet-500/10 scale-[1.02]"
+                    ? "border-violet-500/30 bg-gradient-to-b from-violet-500/10 to-transparent shadow-2xl shadow-violet-500/10 lg:scale-[1.03]"
                     : "border-white/5 bg-white/[0.02] hover:border-white/10 hover:bg-white/[0.04]"
                 )}
               >

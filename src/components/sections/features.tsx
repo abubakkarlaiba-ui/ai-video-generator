@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import {
   Sparkles,
   Zap,
@@ -10,7 +9,6 @@ import {
   Globe,
   type LucideIcon,
 } from "lucide-react";
-import { GlassCard } from "@/components/shared/glass-card";
 import { AnimatedWrapper } from "@/components/shared/animated-wrapper";
 import { SectionHeader } from "@/components/shared/section-header";
 
@@ -74,7 +72,10 @@ const FEATURES: {
 export function Features() {
   return (
     <section className="relative py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="absolute inset-0 bg-gradient-to-b from-white/[0.01] via-white/[0.02] to-white/[0.01]" />
+      <div className="absolute left-1/2 top-0 h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-violet-600/5 blur-[150px]" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="Features"
           title="Everything you need to"
@@ -82,17 +83,13 @@ export function Features() {
           description="Our platform provides all the tools and capabilities to generate professional-quality videos using cutting-edge AI."
         />
 
-        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((feature, index) => (
             <AnimatedWrapper key={feature.title} delay={index * 0.08}>
-              <GlassCard className="relative h-full overflow-hidden p-7">
-                <div
-                  className={`absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br ${feature.gradient} blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
-                />
+              <div className="group glass-card relative h-full overflow-hidden rounded-2xl p-7 transition-all duration-500">
+                <div className={`absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br ${feature.gradient} blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
                 <div className="relative">
-                  <div
-                    className={`mb-5 inline-flex rounded-2xl bg-gradient-to-br ${feature.gradient} p-3.5`}
-                  >
+                  <div className={`mb-5 inline-flex rounded-2xl bg-gradient-to-br ${feature.gradient} p-3.5`}>
                     <feature.icon className={`h-6 w-6 ${feature.color}`} />
                   </div>
                   <h3 className="text-lg font-semibold text-white">
@@ -102,7 +99,7 @@ export function Features() {
                     {feature.description}
                   </p>
                 </div>
-              </GlassCard>
+              </div>
             </AnimatedWrapper>
           ))}
         </div>

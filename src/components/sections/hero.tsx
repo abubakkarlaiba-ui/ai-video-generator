@@ -18,10 +18,9 @@ import { ParticleField } from "@/components/shared/particle-field";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-16">
       <AuroraBackground />
       <ParticleField />
-
       <div className="pointer-events-none absolute inset-0 grid-bg opacity-40" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -31,10 +30,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Badge
-              variant="default"
-              className="mb-8 gap-2 px-5 py-2 text-sm"
-            >
+            <Badge variant="default" className="mb-8 gap-2 px-5 py-2 text-sm">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-violet-500" />
@@ -47,7 +43,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-5xl text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+            className="max-w-5xl text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem] lg:leading-[1.05]"
           >
             <span className="text-white">Create </span>
             <span className="text-gradient">stunning videos</span>
@@ -90,30 +86,25 @@ export function Hero() {
             </Button>
           </motion.div>
 
-          {/* Floating UI Elements */}
+          {/* Preview Window */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="relative mt-20 w-full max-w-5xl"
+            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="relative mt-24 w-full max-w-5xl"
           >
-            {/* Main Preview Window */}
-            <div className="glass-card relative overflow-hidden rounded-3xl p-1">
-              <div className="relative aspect-video overflow-hidden rounded-2xl bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900">
-                {/* Animated gradient overlay */}
+            <div className="glass-card relative overflow-hidden rounded-3xl p-[1px]">
+              <div className="relative aspect-video overflow-hidden rounded-[23px] bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900">
                 <div className="absolute inset-0 bg-gradient-to-br from-violet-600/10 via-transparent to-indigo-600/10" />
-
-                {/* Grid pattern */}
                 <div className="absolute inset-0 grid-bg opacity-30" />
 
-                {/* Center content */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="flex flex-col items-center gap-4">
                     <div className="relative">
                       <div className="rounded-2xl bg-white/5 p-6 backdrop-blur-sm animate-border-flow border border-white/10">
                         <Film className="h-12 w-12 text-violet-400" />
                       </div>
-                      <div className="absolute -bottom-1 -right-1 rounded-lg bg-violet-600 p-1.5">
+                      <div className="absolute -bottom-1 -right-1 rounded-lg bg-violet-600 p-1.5 shadow-lg shadow-violet-500/30">
                         <Wand2 className="h-3 w-3 text-white" />
                       </div>
                     </div>
@@ -128,32 +119,29 @@ export function Hero() {
                   </div>
                 </div>
 
-                {/* Bottom bar */}
-                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <div className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="text-xs text-white/60">Processing</span>
+                    <span className="text-xs font-medium text-white/60">Processing</span>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs text-white/40">01:23 / 02:00</span>
-                  </div>
+                  <span className="text-xs tabular-nums text-white/40">01:23 / 02:00</span>
                 </div>
               </div>
             </div>
 
-            {/* Floating Elements */}
+            {/* Floating Cards */}
             <motion.div
-              animate={{ y: [-5, 5, -5] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -left-6 top-1/4 glass-card rounded-xl p-3 shadow-xl"
+              animate={{ y: [-6, 6, -6] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -left-4 top-[15%] hidden sm:block"
             >
-              <div className="flex items-center gap-2">
+              <div className="glass-card flex items-center gap-2.5 rounded-xl px-4 py-3 shadow-2xl">
                 <div className="rounded-lg bg-violet-600/20 p-2">
                   <Video className="h-4 w-4 text-violet-400" />
                 </div>
                 <div>
-                  <p className="text-xs font-medium text-white">4K Ultra HD</p>
+                  <p className="text-xs font-semibold text-white">4K Ultra HD</p>
                   <p className="text-[10px] text-white/40">60fps HDR</p>
                 </div>
               </div>
@@ -161,31 +149,31 @@ export function Hero() {
 
             <motion.div
               animate={{ y: [5, -5, 5] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -right-6 top-1/3 glass-card rounded-xl p-3 shadow-xl"
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -right-4 top-[30%] hidden sm:block"
             >
-              <div className="flex items-center gap-2">
+              <div className="glass-card flex items-center gap-2.5 rounded-xl px-4 py-3 shadow-2xl">
                 <div className="rounded-lg bg-indigo-600/20 p-2">
                   <Clapperboard className="h-4 w-4 text-indigo-400" />
                 </div>
                 <div>
-                  <p className="text-xs font-medium text-white">60s Generation</p>
+                  <p className="text-xs font-semibold text-white">60s Generation</p>
                   <p className="text-[10px] text-white/40">Lightning fast</p>
                 </div>
               </div>
             </motion.div>
 
             <motion.div
-              animate={{ y: [-3, 3, -3] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -left-4 bottom-1/4 glass-card rounded-xl p-3 shadow-xl"
+              animate={{ y: [-4, 4, -4] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -left-4 bottom-[15%] hidden sm:block"
             >
-              <div className="flex items-center gap-2">
+              <div className="glass-card flex items-center gap-2.5 rounded-xl px-4 py-3 shadow-2xl">
                 <div className="rounded-lg bg-emerald-600/20 p-2">
                   <Sparkles className="h-4 w-4 text-emerald-400" />
                 </div>
                 <div>
-                  <p className="text-xs font-medium text-white">AI Powered</p>
+                  <p className="text-xs font-semibold text-white">AI Powered</p>
                   <p className="text-[10px] text-white/40">v3.0 Model</p>
                 </div>
               </div>
@@ -194,8 +182,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Bottom fade */}
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent" />
     </section>
   );
 }
