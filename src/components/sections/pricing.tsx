@@ -23,12 +23,12 @@ export function PricingPreview() {
           description="Start free and scale as you grow. No hidden fees, no surprises."
         />
 
-        <div className="mt-16 grid gap-5 lg:grid-cols-3">
+        <div className="mt-20 grid gap-6 lg:grid-cols-3">
           {PRICING_PLANS.map((plan, index) => (
             <AnimatedWrapper key={plan.name} delay={index * 0.1}>
               <div
                 className={cn(
-                  "relative flex h-full flex-col rounded-2xl border p-8 transition-all duration-500",
+                  "relative flex h-full flex-col rounded-2xl border p-9 transition-all duration-500",
                   plan.highlighted
                     ? "border-violet-500/30 bg-gradient-to-b from-violet-500/10 to-transparent shadow-2xl shadow-violet-500/10 lg:scale-[1.03]"
                     : "border-white/5 bg-white/[0.02] hover:border-white/10 hover:bg-white/[0.04]"

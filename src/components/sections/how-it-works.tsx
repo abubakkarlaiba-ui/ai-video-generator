@@ -67,7 +67,7 @@ export function HowItWorks() {
         />
 
         {/* Timeline */}
-        <div className="relative mt-20">
+        <div className="relative mt-24">
           {/* Vertical line - desktop */}
           <div className="absolute left-1/2 top-0 bottom-0 hidden w-px bg-gradient-to-b from-violet-600/40 via-indigo-600/40 to-emerald-600/40 lg:block" />
 

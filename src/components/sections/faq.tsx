@@ -58,7 +58,7 @@ function FAQItem({
     >
       <button
         onClick={onToggle}
-        className="flex w-full items-center justify-between p-6 text-left"
+        className="flex w-full items-center justify-between p-7 text-left"
         aria-expanded={isOpen}
       >
         <span className="pr-4 text-[15px] font-semibold text-white">
@@ -86,7 +86,7 @@ function FAQItem({
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="px-6 pb-6">
+            <div className="px-7 pb-7">
               <p className="text-sm leading-relaxed text-white/50">
                 {item.answer}
               </p>
@@ -113,7 +113,7 @@ export function FAQ() {
           description="Everything you need to know about SynthAI. Can't find what you're looking for? Contact our support team."
         />
 
-        <div className="mt-16 space-y-3">
+        <div className="mt-20 space-y-4">
           {FAQ_ITEMS.map((item, index) => (
             <AnimatedWrapper key={item.question} delay={index * 0.05}>
               <FAQItem

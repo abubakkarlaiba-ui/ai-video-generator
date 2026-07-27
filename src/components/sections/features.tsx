@@ -83,19 +83,19 @@ export function Features() {
           description="Our platform provides all the tools and capabilities to generate professional-quality videos using cutting-edge AI."
         />
 
-        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((feature, index) => (
             <AnimatedWrapper key={feature.title} delay={index * 0.08}>
-              <div className="group glass-card relative h-full overflow-hidden rounded-2xl p-7 transition-all duration-500">
+              <div className="group glass-card relative h-full overflow-hidden rounded-2xl p-8 transition-all duration-500">
                 <div className={`absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br ${feature.gradient} blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
                 <div className="relative">
-                  <div className={`mb-5 inline-flex rounded-2xl bg-gradient-to-br ${feature.gradient} p-3.5`}>
+                  <div className={`mb-6 inline-flex rounded-2xl bg-gradient-to-br ${feature.gradient} p-4`}>
                     <feature.icon className={`h-6 w-6 ${feature.color}`} />
                   </div>
                   <h3 className="text-lg font-semibold text-white">
                     {feature.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/50">
+                  <p className="mt-4 text-sm leading-relaxed text-white/50">
                     {feature.description}
                   </p>
                 </div>

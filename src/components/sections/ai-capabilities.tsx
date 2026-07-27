@@ -72,10 +72,10 @@ export function AICapabilities() {
           description="Our custom-built neural network architecture pushes the boundaries of what's possible with AI video generation."
         />
 
-        <div className="mt-16 grid gap-5 lg:grid-cols-2">
+        <div className="mt-20 grid gap-6 lg:grid-cols-2">
           {/* Main Showcase */}
           <AnimatedWrapper direction="left" className="lg:row-span-2">
-            <div className="glass-card group relative h-full overflow-hidden rounded-2xl p-8 transition-all duration-500 hover:bg-white/[0.04] sm:p-10">
+            <div className="glass-card group relative h-full overflow-hidden rounded-2xl p-10 transition-all duration-500 hover:bg-white/[0.04] sm:p-12">
               <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-violet-600/20 blur-[80px] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
               <div className="absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-indigo-600/20 blur-[80px] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
 
@@ -121,9 +121,9 @@ export function AICapabilities() {
           {/* Stats Cards */}
           {CAPABILITIES.map((cap, index) => (
             <AnimatedWrapper key={cap.title} direction="right" delay={index * 0.1}>
-              <div className="glass-card group rounded-2xl p-6 transition-all duration-500 hover:bg-white/[0.06]">
-                <div className="flex items-start gap-4">
-                  <div className="rounded-xl bg-white/5 p-3 transition-colors duration-300 group-hover:bg-white/10">
+              <div className="glass-card group rounded-2xl p-7 transition-all duration-500 hover:bg-white/[0.06]">
+                <div className="flex items-start gap-5">
+                  <div className="rounded-xl bg-white/5 p-3.5 transition-colors duration-300 group-hover:bg-white/10">
                     <cap.icon className={`h-6 w-6 ${cap.color}`} />
                   </div>
                   <div className="flex-1">

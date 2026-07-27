@@ -15,27 +15,27 @@ export const metadata: Metadata = {
 
 export default function PricingPage() {
   return (
-    <div className="min-h-screen pt-24 pb-16">
+    <div className="min-h-screen pt-28 pb-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <AnimatedWrapper className="text-center">
-          <Badge variant="default" className="mb-4 gap-1.5">
+          <Badge variant="default" className="mb-5 gap-1.5">
             <Sparkles className="h-3 w-3" />
             Pricing
           </Badge>
           <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
             Simple, transparent pricing
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-white/60">
+          <p className="mx-auto mt-5 max-w-2xl text-lg text-white/60">
             Start free and scale as you grow. No hidden fees.
           </p>
         </AnimatedWrapper>
 
-        <div className="mt-16 grid gap-8 lg:grid-cols-3">
+        <div className="mt-20 grid gap-8 lg:grid-cols-3">
           {PRICING_PLANS.map((plan, index) => (
             <AnimatedWrapper key={plan.name} delay={index * 0.1}>
               <div
                 className={cn(
-                  "relative flex flex-col rounded-2xl border p-8 backdrop-blur-xl transition-all duration-300 h-full",
+                  "relative flex flex-col rounded-2xl border p-9 backdrop-blur-xl transition-all duration-300 h-full",
                   plan.highlighted
                     ? "border-violet-500/50 bg-violet-500/5 shadow-2xl shadow-violet-500/10"
                     : "border-white/10 bg-white/5"
@@ -68,7 +68,7 @@ export default function PricingPage() {
                   </div>
                 </div>
 
-                <ul className="mt-8 flex-1 space-y-3">
+                <ul className="mt-9 flex-1 space-y-4">
                   {plan.features.map((feature) => (
                     <li
                       key={feature}
@@ -92,8 +92,8 @@ export default function PricingPage() {
           ))}
         </div>
 
-        <AnimatedWrapper className="mt-16" delay={0.3}>
-          <GlassCard className="mx-auto max-w-2xl p-8 text-center">
+        <AnimatedWrapper className="mt-20" delay={0.3}>
+          <GlassCard className="mx-auto max-w-2xl p-10 text-center">
             <h3 className="text-xl font-semibold text-white">
               Need a custom plan?
             </h3>

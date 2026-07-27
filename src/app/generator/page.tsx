@@ -213,6 +213,10 @@ export default function GeneratorPage() {
                         autoPlay
                         loop
                         className="h-full w-full object-cover"
+                        onError={(e) => {
+                          const target = e.target as HTMLVideoElement;
+                          target.poster = "";
+                        }}
                       />
                       {/* Success badge */}
                       <div className="absolute top-3 left-3 flex items-center gap-1.5 rounded-full bg-black/60 px-3 py-1.5 backdrop-blur-sm">

@@ -19,10 +19,10 @@ export function Testimonials() {
           description="See what our users have to say about their experience with SynthAI."
         />
 
-        <div className="mt-16 grid gap-5 md:grid-cols-3">
+        <div className="mt-20 grid gap-6 md:grid-cols-3">
           {TESTIMONIALS.map((testimonial, index) => (
             <AnimatedWrapper key={testimonial.name} delay={index * 0.1}>
-              <div className="glass-card group relative flex h-full flex-col overflow-hidden rounded-2xl p-7 transition-all duration-500 hover:bg-white/[0.06]">
+              <div className="glass-card group relative flex h-full flex-col overflow-hidden rounded-2xl p-8 transition-all duration-500 hover:bg-white/[0.06]">
                 <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-violet-600/10 blur-[60px] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
 
                 <Quote className="mb-4 h-7 w-7 text-violet-400/25" />

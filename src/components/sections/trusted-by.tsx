@@ -15,7 +15,7 @@ const TRUSTED_COMPANIES = [
 
 export function TrustedBy() {
   return (
-    <section className="relative py-24">
+    <section className="relative py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/25">
           Trusted by leading creative teams worldwide
