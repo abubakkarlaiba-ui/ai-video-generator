@@ -58,8 +58,8 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen pt-24 pb-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen pt-28 pb-20">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <AnimatedWrapper className="text-center">
           <Badge variant="default" className="mb-4 gap-1.5">
             <Sparkles className="h-3 w-3" />
@@ -71,16 +71,16 @@ export default function AboutPage() {
               video creation
             </span>
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-white/60">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-white/60 leading-relaxed">
             We&apos;re a team of engineers, designers, and AI researchers on a mission
             to make professional video creation accessible to everyone.
           </p>
         </AnimatedWrapper>
 
-        <div className="mt-24">
+        <div className="mt-32">
           <AnimatedWrapper>
             <GlassCard className="p-8 sm:p-12">
-              <div className="grid gap-8 lg:grid-cols-2">
+              <div className="grid gap-10 lg:grid-cols-2">
                 <div>
                   <h2 className="text-2xl font-bold text-white">Our Story</h2>
                   <p className="mt-4 text-white/60 leading-relaxed">
@@ -121,14 +121,14 @@ export default function AboutPage() {
           </AnimatedWrapper>
         </div>
 
-        <div className="mt-24">
+        <div className="mt-32">
           <AnimatedWrapper className="text-center">
             <h2 className="text-2xl font-bold text-white sm:text-3xl">
               Our Values
             </h2>
           </AnimatedWrapper>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {values.map((value, index) => (
               <AnimatedWrapper key={value.title} delay={index * 0.1}>
                 <GlassCard className="p-6 h-full">

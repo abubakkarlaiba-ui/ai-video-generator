@@ -107,14 +107,14 @@ export default function GeneratorPage() {
   const isComplete = result?.status === "completed" && result?.videoUrl;
 
   return (
-    <div className="min-h-screen pt-24 pb-16">
+    <div className="min-h-screen pt-28 pb-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-12 text-center"
+          className="mb-16 text-center"
         >
           <Badge variant="default" className="mb-4 gap-1.5">
             <Wand2 className="h-3 w-3" />
@@ -128,13 +128,13 @@ export default function GeneratorPage() {
           </p>
         </motion.div>
 
-        <div className="grid gap-8 lg:grid-cols-[1fr_420px]">
+        <div className="grid gap-10 lg:grid-cols-[1fr_420px]">
           {/* Left: Prompt + Settings */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="space-y-6"
+            className="space-y-8"
           >
             <PromptInput
               value={prompt}

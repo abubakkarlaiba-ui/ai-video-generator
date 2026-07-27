@@ -197,7 +197,7 @@ export function PromptInput({
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       {/* Main Prompt Card */}
       <motion.div
         animate={{
@@ -222,7 +222,7 @@ export function PromptInput({
           )}
         </AnimatePresence>
 
-        <div className="rounded-xl bg-white/[0.02] p-5 sm:p-6">
+        <div className="rounded-xl bg-white/[0.02] p-6 sm:p-7">
           {/* Header */}
           <div className="mb-4 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
@@ -339,7 +339,7 @@ export function PromptInput({
           </div>
 
           {/* Bottom bar */}
-          <div className="mt-3 flex items-center justify-between">
+          <div className="mt-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
               {/* Examples toggle */}
               <button
@@ -433,7 +433,7 @@ export function PromptInput({
       </motion.div>
 
       {/* Magic Enhance + Generate Row */}
-      <div className="flex flex-col gap-3 sm:flex-row">
+      <div className="flex flex-col gap-4 sm:flex-row">
         {/* Magic Prompt Enhancement */}
         <Button
           variant="outline"

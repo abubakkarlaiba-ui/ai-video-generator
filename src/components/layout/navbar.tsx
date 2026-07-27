@@ -102,9 +102,9 @@ export function Navbar() {
                 className="absolute rounded-xl bg-white/[0.06]"
                 initial={false}
                 animate={{
-                  x: hoveredIndex !== null ? hoveredIndex * 100 : -1000,
+                  x: hoveredIndex !== null ? hoveredIndex * 88 : -1000,
                   opacity: hoveredIndex !== null ? 1 : 0,
-                  width: 80,
+                  width: 88,
                 }}
                 transition={{
                   type: "spring",
@@ -121,8 +121,8 @@ export function Navbar() {
                     layoutId="nav-active-pill"
                     className="absolute rounded-xl bg-white/[0.08] border border-white/[0.06]"
                     style={{
-                      left: index * 80 + 0,
-                      width: 80,
+                      left: index * 88 + 0,
+                      width: 88,
                       height: 36,
                     }}
                     transition={{
@@ -143,7 +143,7 @@ export function Navbar() {
                     onMouseEnter={() => setHoveredIndex(index)}
                     onMouseLeave={() => setHoveredIndex(null)}
                     className={cn(
-                      "relative z-10 flex h-9 w-20 items-center justify-center rounded-xl text-[13px] font-medium transition-colors duration-200",
+                      "relative z-10 flex h-9 w-[88px] items-center justify-center rounded-xl text-[13px] font-medium transition-colors duration-200",
                       active
                         ? "text-white"
                         : "text-white/50 hover:text-white/80"
