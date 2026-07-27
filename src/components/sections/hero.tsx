@@ -21,16 +21,16 @@ export function Hero() {
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-16">
       <AuroraBackground />
       <ParticleField />
-      <div className="pointer-events-none absolute inset-0 grid-bg opacity-40" />
+      <div className="pointer-events-none absolute inset-0 grid-bg opacity-30" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 hero-container">
         <div className="flex flex-col items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Badge variant="default" className="mb-8 gap-2 px-5 py-2 text-sm">
+            <Badge variant="default" className="mb-10 gap-2 px-5 py-2 text-sm">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-violet-500" />
@@ -43,12 +43,12 @@ export function Hero() {
             initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-5xl text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem] lg:leading-[1.05]"
+            className="heading-hero max-w-5xl text-white"
           >
-            <span className="text-white">Create </span>
+            <span>Create </span>
             <span className="text-gradient">stunning videos</span>
             <br />
-            <span className="text-white">with the power of </span>
+            <span>with the power of </span>
             <span className="text-gradient">AI</span>
           </motion.h1>
 
@@ -56,7 +56,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-8 max-w-2xl text-lg leading-relaxed text-white/50 sm:text-xl"
+            className="body-large mt-8 max-w-2xl text-white/50"
           >
             Transform text prompts into cinematic masterpieces in seconds.
             No editing skills required. Just describe your vision and watch AI
@@ -69,7 +69,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="mt-12 flex flex-col items-center gap-4 sm:flex-row"
           >
-            <Button size="xl" asChild className="glow-violet-strong group">
+            <Button size="xl" asChild className="group">
               <Link href="/generator">
                 <Sparkles className="h-5 w-5 transition-transform group-hover:rotate-12" />
                 Start Creating Free
@@ -91,17 +91,17 @@ export function Hero() {
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="relative mt-24 w-full max-w-5xl"
+            className="relative mt-28 w-full max-w-5xl"
           >
-            <div className="glass-card relative overflow-hidden rounded-3xl p-[1px]">
-              <div className="relative aspect-video overflow-hidden rounded-[23px] bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900">
+            <div className="glass-card relative overflow-hidden p-[1px]">
+              <div className="relative aspect-video overflow-hidden rounded-[19px] bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900">
                 <div className="absolute inset-0 bg-gradient-to-br from-violet-600/10 via-transparent to-indigo-600/10" />
                 <div className="absolute inset-0 grid-bg opacity-30" />
 
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="flex flex-col items-center gap-4">
                     <div className="relative">
-                      <div className="rounded-2xl bg-white/5 p-6 backdrop-blur-sm animate-border-flow border border-white/10">
+                      <div className="rounded-2xl bg-white/5 p-6 backdrop-blur-sm border border-white/10">
                         <Film className="h-12 w-12 text-violet-400" />
                       </div>
                       <div className="absolute -bottom-1 -right-1 rounded-lg bg-violet-600 p-1.5 shadow-lg shadow-violet-500/30">
@@ -113,7 +113,7 @@ export function Hero() {
                         AI is generating your video...
                       </p>
                       <p className="mt-1 text-xs text-white/40">
-                        Cinematic 4K • 60fps • HDR
+                        Cinematic 4K &bull; 60fps &bull; HDR
                       </p>
                     </div>
                   </div>

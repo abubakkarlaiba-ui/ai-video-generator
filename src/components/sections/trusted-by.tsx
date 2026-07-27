@@ -15,13 +15,13 @@ const TRUSTED_COMPANIES = [
 
 export function TrustedBy() {
   return (
-    <section className="relative py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/25">
+    <section className="relative py-32">
+      <div className="section-container">
+        <p className="body-small text-center font-medium uppercase tracking-[0.2em] text-white/25">
           Trusted by leading creative teams worldwide
         </p>
 
-        <div className="relative mt-12 overflow-hidden">
+        <div className="relative mt-16 overflow-hidden">
           <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-black to-transparent z-10" />
           <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-black to-transparent z-10" />
 
@@ -33,7 +33,7 @@ export function TrustedBy() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
-                <span className={`${company.className} text-white/[0.15] transition-colors duration-300 hover:text-white/30`}>
+                <span className={`${company.className} text-white/[0.12] transition-colors duration-300 hover:text-white/25`}>
                   {company.name}
                 </span>
               </motion.div>

@@ -54,11 +54,11 @@ const STEPS: {
 
 export function HowItWorks() {
   return (
-    <section className="relative py-32">
+    <section className="relative py-36">
       <div className="absolute inset-0 bg-gradient-to-b from-white/[0.01] via-white/[0.02] to-white/[0.01]" />
       <div className="absolute left-1/4 top-1/3 h-[500px] w-[500px] rounded-full bg-cyan-600/5 blur-[120px]" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="section-container relative">
         <SectionHeader
           badge="How It Works"
           title="From text to video"
@@ -71,7 +71,7 @@ export function HowItWorks() {
           {/* Vertical line - desktop */}
           <div className="absolute left-1/2 top-0 bottom-0 hidden w-px bg-gradient-to-b from-violet-600/40 via-indigo-600/40 to-emerald-600/40 lg:block" />
 
-          <div className="space-y-8 lg:space-y-0">
+          <div className="space-y-12 lg:space-y-0">
             {STEPS.map((step, index) => {
               const isEven = index % 2 === 0;
               return (
@@ -80,12 +80,12 @@ export function HowItWorks() {
                   direction={isEven ? "left" : "right"}
                   delay={index * 0.12}
                 >
-                  <div className="relative lg:grid lg:grid-cols-2 lg:gap-20 lg:py-10">
+                  <div className="relative lg:grid lg:grid-cols-2 lg:gap-24 lg:py-12">
                     {/* Center dot */}
                     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden lg:block">
                       <motion.div
                         whileHover={{ scale: 1.15 }}
-                        className={`flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-black shadow-lg`}
+                        className={`flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-black shadow-lg`}
                       >
                         <span className={`text-sm font-bold ${step.color}`}>{step.step}</span>
                       </motion.div>
@@ -93,24 +93,24 @@ export function HowItWorks() {
 
                     {/* Content side */}
                     <div
-                      className={`${isEven ? "lg:col-start-1 lg:pr-20 lg:text-right" : "lg:col-start-2 lg:pl-20"}`}
+                      className={`${isEven ? "lg:col-start-1 lg:pr-24 lg:text-right" : "lg:col-start-2 lg:pl-24"}`}
                     >
                       <div className="flex items-center gap-4 lg:justify-start">
                         {/* Mobile step number */}
                         <div className={`flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black lg:hidden`}>
                           <span className={`text-xs font-bold ${step.color}`}>{step.step}</span>
                         </div>
-                        <div className={`inline-flex rounded-2xl bg-gradient-to-br from-white/5 to-transparent p-3.5`}>
+                        <div className={`inline-flex rounded-2xl bg-gradient-to-br from-white/5 to-transparent p-4`}>
                           <step.icon className={`h-7 w-7 ${step.color}`} />
                         </div>
                       </div>
-                      <span className={`mt-4 inline-block text-xs font-bold uppercase tracking-widest ${step.color}`}>
+                      <span className={`mt-5 inline-block text-xs font-bold uppercase tracking-widest ${step.color}`}>
                         Step {step.step}
                       </span>
-                      <h3 className="mt-2.5 text-xl font-bold text-white sm:text-2xl">
+                      <h3 className="heading-card mt-3 text-white">
                         {step.title}
                       </h3>
-                      <p className="mt-3 text-white/50 leading-relaxed">
+                      <p className="body-large mt-4 text-white/50">
                         {step.description}
                       </p>
                     </div>

@@ -71,11 +71,10 @@ const FEATURES: {
 
 export function Features() {
   return (
-    <section className="relative py-32">
+    <section className="relative py-36">
       <div className="absolute inset-0 bg-gradient-to-b from-white/[0.01] via-white/[0.02] to-white/[0.01]" />
-      <div className="absolute left-1/2 top-0 h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-violet-600/5 blur-[150px]" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="section-container relative">
         <SectionHeader
           badge="Features"
           title="Everything you need to"
@@ -83,19 +82,19 @@ export function Features() {
           description="Our platform provides all the tools and capabilities to generate professional-quality videos using cutting-edge AI."
         />
 
-        <div className="mt-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-20 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((feature, index) => (
             <AnimatedWrapper key={feature.title} delay={index * 0.08}>
-              <div className="group glass-card relative h-full overflow-hidden rounded-2xl p-8 transition-all duration-500">
+              <div className="group glass-card relative h-full overflow-hidden p-8 transition-all duration-500">
                 <div className={`absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br ${feature.gradient} blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
                 <div className="relative">
                   <div className={`mb-6 inline-flex rounded-2xl bg-gradient-to-br ${feature.gradient} p-4`}>
                     <feature.icon className={`h-6 w-6 ${feature.color}`} />
                   </div>
-                  <h3 className="text-lg font-semibold text-white">
+                  <h3 className="heading-card text-white">
                     {feature.title}
                   </h3>
-                  <p className="mt-4 text-sm leading-relaxed text-white/50">
+                  <p className="body-small mt-4 text-white/50">
                     {feature.description}
                   </p>
                 </div>

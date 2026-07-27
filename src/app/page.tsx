@@ -12,50 +12,20 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-
-      <div className="relative">
-        <TrustedBy />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-        </div>
-      </div>
-
+      <TrustedBy />
+      <div className="section-divider" />
       <Features />
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-      </div>
-
+      <div className="section-divider" />
       <AICapabilities />
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-      </div>
-
+      <div className="section-divider" />
       <HowItWorks />
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-      </div>
-
+      <div className="section-divider" />
       <PricingPreview />
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-      </div>
-
+      <div className="section-divider" />
       <Testimonials />
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-      </div>
-
+      <div className="section-divider" />
       <FAQ />
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-      </div>
-
+      <div className="section-divider" />
       <CTA />
     </>
   );

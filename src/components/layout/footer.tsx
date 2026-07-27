@@ -51,22 +51,22 @@ function LinkedinIcon({ className }: { className?: string }) {
 export function Footer() {
   return (
     <footer className="relative border-t border-white/5 bg-black/80 backdrop-blur-2xl">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+      <div className="section-container py-20">
+        <div className="grid grid-cols-2 gap-12 md:grid-cols-4">
           <div className="col-span-2 md:col-span-1">
             <Link href="/" aria-label={siteConfig.name}>
               <Logo />
             </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/40">
+            <p className="body-small mt-5 max-w-xs text-white/40">
               Transform text into stunning videos with the power of artificial
               intelligence. The future of content creation.
             </p>
-            <div className="mt-6 flex items-center gap-3">
+            <div className="mt-8 flex items-center gap-3">
               <Link
                 href={siteConfig.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg p-2.5 text-white/30 transition-all hover:bg-white/5 hover:text-white"
+                className="rounded-[14px] p-2.5 text-white/30 transition-all hover:bg-white/5 hover:text-white"
                 aria-label="GitHub"
               >
                 <GithubIcon className="h-5 w-5" />
@@ -75,14 +75,14 @@ export function Footer() {
                 href={siteConfig.links.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg p-2.5 text-white/30 transition-all hover:bg-white/5 hover:text-white"
+                className="rounded-[14px] p-2.5 text-white/30 transition-all hover:bg-white/5 hover:text-white"
                 aria-label="Twitter"
               >
                 <TwitterIcon className="h-5 w-5" />
               </Link>
               <Link
                 href="#"
-                className="rounded-lg p-2.5 text-white/30 transition-all hover:bg-white/5 hover:text-white"
+                className="rounded-[14px] p-2.5 text-white/30 transition-all hover:bg-white/5 hover:text-white"
                 aria-label="LinkedIn"
               >
                 <LinkedinIcon className="h-5 w-5" />
@@ -92,15 +92,15 @@ export function Footer() {
 
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/50">
+              <h3 className="mb-5 text-xs font-semibold uppercase tracking-widest text-white/50">
                 {category}
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-3.5">
                 {links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-white/30 transition-colors hover:text-white"
+                      className="body-small text-white/30 transition-colors hover:text-white"
                     >
                       {link.label}
                     </Link>
@@ -111,13 +111,13 @@ export function Footer() {
           ))}
         </div>
 
-        <Separator className="my-10 bg-white/5" />
+        <Separator className="my-12 bg-white/5" />
 
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-xs text-white/30">
+          <p className="body-small text-white/30">
             &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>
-          <div className="flex items-center gap-1.5 text-xs text-white/30">
+          <div className="flex items-center gap-1.5 body-small text-white/30">
             <Sparkles className="h-3 w-3 text-violet-400/50" />
             Crafted with AI
           </div>

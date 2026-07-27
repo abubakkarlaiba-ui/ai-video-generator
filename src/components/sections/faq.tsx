@@ -52,7 +52,7 @@ function FAQItem({
   return (
     <div
       className={cn(
-        "glass-card overflow-hidden rounded-2xl transition-all duration-300",
+        "glass-card overflow-hidden transition-all duration-300",
         isOpen && "bg-white/[0.04]"
       )}
     >
@@ -87,7 +87,7 @@ function FAQItem({
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="px-7 pb-7">
-              <p className="text-sm leading-relaxed text-white/50">
+              <p className="body-small text-white/50">
                 {item.answer}
               </p>
             </div>
@@ -102,10 +102,10 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative py-32">
+    <section className="relative py-36">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.015] to-transparent" />
 
-      <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <div className="section-container relative" style={{ maxWidth: "900px" }}>
         <SectionHeader
           badge="FAQ"
           title="Frequently asked"

@@ -23,18 +23,18 @@ export function SectionHeader({
     <AnimatedWrapper className={className}>
       <div className="mx-auto max-w-3xl text-center">
         {badge && (
-          <Badge variant="default" className="mb-7 gap-1.5">
+          <Badge variant="default" className="mb-8 gap-1.5">
             <Sparkles className="h-3 w-3" />
             {badge}
           </Badge>
         )}
-        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+        <h2 className="heading-section text-white">
           {title}{" "}
           {titleGradient && (
             <span className="text-gradient">{titleGradient}</span>
           )}
         </h2>
-        <p className="mt-6 text-lg leading-relaxed text-white/50">
+        <p className="body-large mt-8 text-white/50 max-w-2xl mx-auto">
           {description}
         </p>
       </div>

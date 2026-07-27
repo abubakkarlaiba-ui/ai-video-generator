@@ -11,11 +11,11 @@ import { PRICING_PLANS } from "@/lib/constants";
 
 export function PricingPreview() {
   return (
-    <section className="relative py-32">
+    <section className="relative py-36">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.015] to-transparent" />
       <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-600/5 blur-[150px]" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="section-container relative">
         <SectionHeader
           badge="Pricing"
           title="Simple, transparent"
@@ -28,7 +28,7 @@ export function PricingPreview() {
             <AnimatedWrapper key={plan.name} delay={index * 0.1}>
               <div
                 className={cn(
-                  "relative flex h-full flex-col rounded-2xl border p-9 transition-all duration-500",
+                  "relative flex h-full flex-col rounded-[20px] border p-8 transition-all duration-500",
                   plan.highlighted
                     ? "border-violet-500/30 bg-gradient-to-b from-violet-500/10 to-transparent shadow-2xl shadow-violet-500/10 lg:scale-[1.03]"
                     : "border-white/5 bg-white/[0.02] hover:border-white/10 hover:bg-white/[0.04]"
@@ -44,9 +44,9 @@ export function PricingPreview() {
                 )}
 
                 <div>
-                  <h3 className="text-xl font-bold text-white">{plan.name}</h3>
-                  <p className="mt-2 text-sm text-white/40">{plan.description}</p>
-                  <div className="mt-6 flex items-baseline gap-1">
+                  <h3 className="heading-card text-white">{plan.name}</h3>
+                  <p className="body-small mt-2 text-white/40">{plan.description}</p>
+                  <div className="mt-8 flex items-baseline gap-1">
                     <span className="text-5xl font-bold text-white">
                       ${plan.price}
                     </span>
@@ -56,11 +56,11 @@ export function PricingPreview() {
                   </div>
                 </div>
 
-                <ul className="mt-8 flex-1 space-y-3.5">
+                <ul className="mt-10 flex-1 space-y-4">
                   {plan.features.map((feature) => (
                     <li
                       key={feature}
-                      className="flex items-start gap-3 text-sm text-white/60"
+                      className="body-small flex items-start gap-3 text-white/60"
                     >
                       <Check className="mt-0.5 h-4 w-4 shrink-0 text-violet-400" />
                       {feature}
@@ -69,7 +69,7 @@ export function PricingPreview() {
                 </ul>
 
                 <Button
-                  className={cn("mt-8 w-full group", plan.highlighted && "glow-violet")}
+                  className={cn("mt-10 w-full group", plan.highlighted && "glow-violet")}
                   variant={plan.highlighted ? "default" : "outline"}
                   size="lg"
                   asChild
