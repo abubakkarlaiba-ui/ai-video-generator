@@ -55,18 +55,18 @@ export default function GeneratorPage() {
     setResult(null);
     setError(null);
 
-    // Simulate progressive loading (slower for AI generation)
+    // Simulate progressive loading (AI generation takes 1-6 minutes)
     let progressValue = 0;
     const interval = setInterval(() => {
       setProgress((prev) => {
-        if (prev >= 85) {
+        if (prev >= 90) {
           clearInterval(interval);
-          return 85;
+          return 90;
         }
-        const increment = prev < 30 ? Math.random() * 8 : Math.random() * 4;
-        return Math.min(prev + increment, 85);
+        const increment = prev < 20 ? Math.random() * 3 : prev < 60 ? Math.random() * 2 : Math.random() * 1;
+        return Math.min(prev + increment, 90);
       });
-    }, 800);
+    }, 2000);
 
     try {
       const res = await fetch("/api/generate", {
@@ -201,7 +201,7 @@ export default function GeneratorPage() {
                         AI is generating your video...
                       </p>
                       <p className="text-xs text-white/40 text-center max-w-[250px]">
-                        This may take 1-2 minutes. The AI is creating your video from your prompt.
+                        This may take 1-6 minutes depending on complexity. The AI is creating your video from your prompt.
                       </p>
                       <Progress value={progress} className="w-full max-w-xs" />
                       <span className="text-xs tabular-nums text-white/40">
