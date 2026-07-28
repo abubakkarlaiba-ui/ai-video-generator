@@ -23,6 +23,7 @@ import {
   Sparkle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PremiumGenerateButton } from "@/components/shared/premium-generate-button";
 import { cn } from "@/lib/utils";
 
 const MAX_CHARS = 2000;
@@ -49,6 +50,7 @@ interface PromptInputProps {
   isGenerating: boolean;
   disabled?: boolean;
   maxLength?: number;
+  progress?: number;
 }
 
 export function PromptInput({
@@ -58,6 +60,7 @@ export function PromptInput({
   isGenerating,
   disabled = false,
   maxLength = MAX_CHARS,
+  progress = 0,
 }: PromptInputProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [isFocused, setIsFocused] = useState(false);
@@ -474,41 +477,15 @@ export function PromptInput({
         </Button>
 
         {/* Generate Button */}
-        <Button
-          size="lg"
+        <PremiumGenerateButton
           onClick={() => {
             saveToHistory(value);
             onGenerate();
           }}
-          disabled={!value.trim() || !!error || isGenerating}
-          className="group relative flex-1 overflow-hidden sm:flex-none sm:min-w-[200px]"
-        >
-          <AnimatePresence mode="wait">
-            {isGenerating ? (
-              <motion.div
-                key="generating"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="flex items-center gap-2"
-              >
-                <Sparkles className="h-4 w-4 animate-spin" />
-                <span>Generating...</span>
-              </motion.div>
-            ) : (
-              <motion.div
-                key="idle"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="flex items-center gap-2"
-              >
-                <Sparkles className="h-4 w-4 transition-transform group-hover:rotate-12" />
-                <span>Generate Video</span>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </Button>
+          disabled={!value.trim() || !!error}
+          isGenerating={isGenerating}
+          progress={progress}
+        />
       </div>
 
       {/* Example Prompts Dropdown */}

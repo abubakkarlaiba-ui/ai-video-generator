@@ -150,6 +150,7 @@ export default function GeneratorPage() {
               onChange={setPrompt}
               onGenerate={handleGenerate}
               isGenerating={isGenerating}
+              progress={progress}
             />
 
             <VideoSettingsPanel settings={settings} onChange={handleSettingsChange} />
