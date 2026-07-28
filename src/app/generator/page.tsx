@@ -21,8 +21,8 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
 import { GlassCard } from "@/components/shared/glass-card";
+import { GenerationLoading } from "@/components/shared/generation-loading";
 import { PromptInput } from "@/components/shared/prompt-input";
 import { VideoSettingsPanel } from "@/components/shared/video-settings-panel";
 import { validateGenerationRequest } from "@/lib/validation";
@@ -468,37 +468,13 @@ export default function GeneratorPage() {
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
-                      className="flex h-full flex-col items-center justify-center gap-5 p-6"
+                      className="h-full"
                     >
-                      <div className="relative">
-                        <Loader2 className="h-14 w-14 animate-spin text-violet-400" />
-                        <div className="absolute inset-0 h-14 w-14 animate-ping rounded-full border-2 border-violet-400/20" />
-                      </div>
-                      <div className="text-center">
-                        <p className="text-sm font-semibold text-white/90">
-                          {currentStage || "Starting..."}
-                        </p>
-                        <p className="body-small mt-2 text-white/40 max-w-[280px]">
-                          The AI is creating your video from your prompt. This may take 1-6 minutes.
-                        </p>
-                      </div>
-                      <div className="w-full max-w-xs space-y-2">
-                        <Progress value={progress} className="h-2" />
-                        <div className="flex items-center justify-between">
-                          <span className="body-small text-white/40">{currentStage}</span>
-                          <span className="body-small tabular-nums text-white/40">
-                            {Math.round(progress)}%
-                          </span>
-                        </div>
-                      </div>
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={handleCancel}
-                        className="mt-2"
-                      >
-                        Cancel
-                      </Button>
+                      <GenerationLoading
+                        progress={progress}
+                        currentStage={currentStage}
+                        onCancel={handleCancel}
+                      />
                     </motion.div>
                   )}
 
